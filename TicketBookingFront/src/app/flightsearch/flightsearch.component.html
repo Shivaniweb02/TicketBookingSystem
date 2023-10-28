@@ -1,0 +1,101 @@
+<!-- <app-navbar></app-navbar> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the flight search form */
+        .flight-search-form {
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Style for the input fields and search button */
+        input[type="text"], select {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the flight search results */
+        .flight-results {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Flight Search</h1>
+
+<!-- Flight Search Form -->
+<h1>Flight Search</h1>
+
+<div>
+  <label for="source">Source:</label>
+  <input type="text" id="source" [(ngModel)]="source" placeholder="Enter source">
+  <label for="destination">Destination:</label>
+  <input type="text" id="destination" [(ngModel)]="destination" placeholder="Enter destination">
+  <button (click)="searchFlights()">Search Flights</button>
+</div>
+
+<div>
+  <h2>Flight Search Results</h2>
+  <div *ngFor="let flight of flights">
+    <p>Flight Name: {{ flight.FlightName }}</p>
+    <p>Source: {{ flight.source }}</p>
+    <p>Destination: {{ flight.destination }}</p>
+    <p>Boarding Time: {{ flight.boardingTime }}</p>
+    <p>Duration: {{ flight.duration }} minutes</p>
+    <p>Layover: {{ flight.layover ? 'Yes' : 'No' }}</p>
+    <p>Layover City: {{ flight.layover_city }}</p>
+  </div>
+</div>
+
+<!-- Flight Search Results -->
+<div class="flight-results" id="flightResults">
+    <!-- Results will be displayed here -->
+</div>
+
+<!-- <script>
+    // Sample flight data (you would fetch this from a database or an API)
+    const flights = [
+        { id: 1, source: "New York", destination: "Los Angeles", price: 300 },
+        { id: 2, source: "Chicago", destination: "Miami", price: 250 },
+        { id: 3, source: "San Francisco", destination: "Las Vegas", price: 200 },
+        { id: 4, source: "Boston", destination: "Washington, D.C.", price: 150 },
+    ];
+
+    function searchFlights() {
+        const src = document.getElementById("src").value;
+        const dest = document.getElementById("dest").value;
+
+        // Filter flights based on source and destination
+        const filteredFlights = flights.filter(flight => flight.source.toLowerCase() === src.toLowerCase() && flight.destination.toLowerCase() === dest.toLowerCase());
+
+        // Display flight search results
+        displayResults(filteredFlights);
+    }
+
+    function displayResults(results) {
+        const flightResults = document.getElementById("flightResults");
+
+        if (results.length === 0) {
+            flightResults.innerHTML = "<p>No flights found for the given source and destination.</p>";
+        } else {
+            let html = "<h2>Flight Search Results</h2>";
+            html += `<tr><td>${flight.id}</td><td>${flight.source}</td><td>${flight.destination}</td><td>$${flight.price}</td></tr>`;
+            }
+        }
+    </script> -->
+</body></html>

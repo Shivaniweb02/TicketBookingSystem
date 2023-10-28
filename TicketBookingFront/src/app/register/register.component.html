@@ -1,0 +1,30 @@
+<h3> Register </h3>
+<button type="Submit" (onClick)="getAll()">Get all</button>
+<form (ngSubmit)="formsubmit()">
+<p>Enter your email </p>
+<!-- if using ngModel then name attribute should be also there -->
+  <input type="email"[(ngModel)]="User.emailID" name="emailID" placeholder="Enter your email"><br>
+  <caption style="color: red;" *ngIf=" User.password ===''">*required</caption>
+  <p>Password</p>
+  <input type="password" [(ngModel)]="User.password" name="password" placeholder="Enter password"><br>
+  <caption style="color: red;" *ngIf=" User.password ===''">*required</caption>
+  <p>Enter your Name </p>
+  <input type="text" [(ngModel)]="User.name" name="name" placeholder="Enter your email"><br>
+ 
+  <p>Enter your Age </p>
+  <input typse="number" [(ngModel)]="User.age" name="age" placeholder="Enter your email"><br>
+ 
+
+  <p>Enter your address </p>
+  <input type="text" [(ngModel)]="User.address" name="address" placeholder="Enter your email"><br>
+ 
+  <p>Enter your Gender </p>
+  <input type="text" [(ngModel)]="User.gender" name="gender" placeholder="Enter your email"><br>
+ 
+  <p>Enter your Phone number </p>
+  <input type="number" [(ngModel)]="User.phone_number" name="phone_number" placeholder="Enter your email"><br>
+ 
+
+  <button type="Submit">Submit</button>
+
+</form>
